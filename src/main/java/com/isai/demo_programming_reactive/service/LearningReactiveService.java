@@ -20,4 +20,11 @@ public class LearningReactiveService {
                 .map(response -> "Respuesta");
     }
 
+    // Emite secuencialmente la cadena "[valor]" siete veces, con un retraso de un
+    // segundo entre cada emisión.
+    public Flux<String> callExternalServiceFlux() {
+        return Flux.just("Hola", "Mundo", "!", "Estoy", "aprendiendo", "programacón", "reactiva")
+                .delayElements(Duration.ofSeconds(1))
+                .map(valor -> "[" + String.valueOf(valor) + "]");
+    }
 }
