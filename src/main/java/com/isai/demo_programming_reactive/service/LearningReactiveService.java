@@ -27,4 +27,10 @@ public class LearningReactiveService {
                 .delayElements(Duration.ofSeconds(1))
                 .map(valor -> "[" + String.valueOf(valor) + "]");
     }
+
+    //Emite las palabras "Hola", "Mundo", "!", "Estoy", "aprendiendo", "programación", "reactiva" con un retraso aleatorio de 0 a 2 segundos entre cada una.
+    public Flux<String> callExternalServiceFluxRandon() {
+        return Flux.just("Hola", "Mundo", "!", "Estoy", "aprendiendo", "programacón", "reactiva")
+                .delayElements(Duration.ofSeconds(random.nextInt(3)));
+    }
 }
